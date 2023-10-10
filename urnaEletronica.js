@@ -76,9 +76,39 @@
 
 // Contador com do-while 
 
-let contador = 0;
+// let contador = 0;
 
-do {
-    console.log("Instrução com contador em" , contador);
-    contador += 1;
-} while (contador >= 10);
+// do {
+//     console.log("Instrução com contador em" , contador);
+//     contador += 1;
+// } while (contador >= 10); 
+
+
+function urnaEletronica() {
+
+    // Aqui vai todo o código do programa.... 
+
+    console.log("Iniciando o programa");
+
+    let
+        totalVotosCandidato1 = 0,
+        totalVotosCandidato2 = 0,
+        totalVotosCandidato3 = 0,
+        totalVotosBranco = 0,
+        totalVotosNulo = 0;
+
+    do {
+
+        // instruções
+        
+        console.log("Candidato 1")
+        console.log("Candidato 2")
+        console.log("Candidato 3")
+        console.log("Branco")
+        console.log("Nulo")
+
+
+    }while(opcao != 0);
+
+    
+}
