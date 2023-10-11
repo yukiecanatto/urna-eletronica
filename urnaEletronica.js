@@ -108,12 +108,12 @@ function urnaEletronica() {
 
     
     console.log("Iniciando o programa");
-    console.log("|1|" , nomeCandidato1)
-    console.log("|2|" , nomeCandidato2)
-    console.log("|3|" , nomeCandidato3)
-    console.log("|5|Branco")
-    console.log("|8|Nulo")
-    console.log("|0|Encerrar votação")
+    console.log("|1|" , nomeCandidato1);
+    console.log("|2|" , nomeCandidato2);
+    console.log("|3|" , nomeCandidato3);
+    console.log("|5|Branco");
+    console.log("|8|Nulo");
+    console.log("|0|Encerrar votação");
 
     voto = parseInt(prompt("Digite a opção de voto"));
 
