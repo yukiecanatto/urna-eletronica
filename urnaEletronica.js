@@ -102,6 +102,8 @@ function urnaEletronica() {
     do {
 
         // instruções
+
+    
     console.log("Iniciando o programa");
     console.log("|1|Candidato 1")
     console.log("|2|Candidato 2")
@@ -111,6 +113,8 @@ function urnaEletronica() {
     console.log("|0|Encerrar votação")
 
     voto = parseInt(prompt("Digite a opção de voto"));
+
+    console.clear();
 
     switch(voto) {
         case 1:
@@ -140,6 +144,12 @@ function urnaEletronica() {
 
         case 0:
             console.log ("Votação encerrada");
+            console.log("Total de votos:");
+            console.log("Candidato 1:" , totalVotosCandidato1);
+            console.log("Candidato 2:" , totalVotosCandidato2);
+            console.log("Candidato 3:" , totalVotosCandidato3);
+            console.log("Brancos:" , totalVotosBranco);
+            console.log("Nulos:" , totalVotosNulo);
             break;
 
         default:
