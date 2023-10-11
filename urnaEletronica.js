@@ -88,27 +88,67 @@ function urnaEletronica() {
 
     // Aqui vai todo o código do programa.... 
 
-    console.log("Iniciando o programa");
+    
 
-    let
+    let 
+        voto,
         totalVotosCandidato1 = 0,
         totalVotosCandidato2 = 0,
         totalVotosCandidato3 = 0,
         totalVotosBranco = 0,
         totalVotosNulo = 0;
+    
 
     do {
 
         // instruções
+    console.log("Iniciando o programa");
+    console.log("|1|Candidato 1")
+    console.log("|2|Candidato 2")
+    console.log("|3|Candidato 3")
+    console.log("|5|Branco")
+    console.log("|8|Nulo")
+    console.log("|0|Encerrar votação")
+
+    voto = parseInt(prompt("Digite a opção de voto"));
+
+    switch(voto) {
+        case 1:
+            totalVotosCandidato1++;
+            console.log ("Candidato 1 recebeu um voto");
+            break;
+
+        case 2:
+            totalVotosCandidato2++;
+            console.log ("Candidato 2 recebeu um voto");
+            break;
+
+        case 3:
+            totalVotosCandidato3++;
+            console.log ("Candidato 3 recebeu um voto");
+            break;
+
+        case 5:
+            totalVotosBranco++;
+            console.log ("O voto foi branco");
+            break;
+
+        case 8:
+            totalVotosNulo++;
+            console.log ("O voto foi nulo");
+            break;
+
+        case 0:
+            console.log ("Votação encerrada");
+            break;
+
+        default:
+            return;
+    }     
         
-        console.log("Candidato 1")
-        console.log("Candidato 2")
-        console.log("Candidato 3")
-        console.log("Branco")
-        console.log("Nulo")
 
 
-    }while(opcao != 0);
+    }while(voto !== 0);
 
     
 }
