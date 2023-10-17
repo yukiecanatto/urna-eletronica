@@ -92,6 +92,7 @@ function urnaEletronica() {
     const nomeCandidato2 = String(prompt("Digite o nome do candidato 2"));
     const nomeCandidato3 = String(prompt("Digite o nome do candidato 3"));
 
+
     let 
 
         voto,
@@ -99,7 +100,10 @@ function urnaEletronica() {
         totalVotosCandidato2 = 0,
         totalVotosCandidato3 = 0,
         totalVotosBranco = 0,
-        totalVotosNulo = 0;
+        totalVotosNulo = 0,
+        totalVotos = totalVotosCandidato1+totalVotosCandidato2+totalVotosCandidato3+totalVotosBranco;
+        
+        
     
 
     do {
@@ -108,12 +112,12 @@ function urnaEletronica() {
 
     
     console.log("Iniciando o programa");
-    console.log("|1|" , nomeCandidato1);
-    console.log("|2|" , nomeCandidato2);
-    console.log("|3|" , nomeCandidato3);
-    console.log("|5|Branco");
-    console.log("|8|Nulo");
-    console.log("|0|Encerrar votação");
+    console.log("|1| " + nomeCandidato1);
+    console.log("|2| " + nomeCandidato2);
+    console.log("|3| " + nomeCandidato3);
+    console.log("|5| Branco");
+    console.log("|8| Nulo");
+    // console.log("|0| Encerrar votação");
 
     voto = parseInt(prompt("Digite a opção de voto"));
 
@@ -122,17 +126,17 @@ function urnaEletronica() {
     switch(voto) {
         case 1:
             totalVotosCandidato1++;
-            console.log ("Candidato" , nomeCandidato1 , "recebeu um voto");
+            console.log ("Candidato " + nomeCandidato1 + ", recebeu um voto");
             break;
 
         case 2:
             totalVotosCandidato2++;
-            console.log ("Candidato" , nomeCandidato2 , "recebeu um voto");
+            console.log ("Candidato " + nomeCandidato2 + ", recebeu um voto");
             break;
 
         case 3:
             totalVotosCandidato3++;
-            console.log ("Candidato" , nomeCandidato3, "recebeu um voto");
+            console.log ("Candidato " + nomeCandidato3 + ", recebeu um voto");
             break;
 
         case 5:
@@ -145,23 +149,33 @@ function urnaEletronica() {
             console.log ("O voto foi nulo");
             break;
 
-        case 0:
-            console.log ("Votação encerrada");
-            console.log("Total de votos:");
-            console.log("Candidato" , nomeCandidato1 , ": " , totalVotosCandidato1);
-            console.log("Candidato" , nomeCandidato2 , ": " , totalVotosCandidato2);
-            console.log("Candidato" , nomeCandidato3 , ": " , totalVotosCandidato3);
-            console.log("Brancos:" , totalVotosBranco);
-            console.log("Nulos:" , totalVotosNulo);
-            break;
-
-        default:
+        case 123:
+            prompt("Tem certeza que deseja encerrar a votação [s/n]?")
+            if( voto != "s");
+            
+            break;   
+            default:
             return;
-    }     
+                
+            }     
+            
+            
+            
+        }while(voto != "s");
+            console.log("Votação encerrada");
+            console.log("Total de votos: | % de votos:");
+            console.log("Candidato " + nomeCandidato1 + ": " + totalVotosCandidato1);
+            console.log("Candidato " + nomeCandidato2 + ": " + totalVotosCandidato2);
+            console.log("Candidato " + nomeCandidato3 + ": " + totalVotosCandidato3);
+            console.log("Brancos: " + totalVotosBranco);
+            console.log("Nulos: " + totalVotosNulo);
+            console.log("% de votos dos candidatos:" + nomeCandidato1 + ": " + (totalVotosCandidato1/totalVotos*100).toFixed(2) + "%");
+            console.log("% de votos dos candidatos:" + nomeCandidato2 + ": " + (totalVotosCandidato2/totalVotos*100).toFixed(2) + "%");
+            console.log("% de votos dos candidatos:" + nomeCandidato3 + ": " + (totalVotosCandidato3/totalVotos*100).toFixed(2) + "%");
+            console.log("% de votos Brancos: " + (totalVotosBranco/totalVotos*100).toFixed(2) + "%");
+            console.log("% de votos Nulos: " + (totalVotosNulo/totalVotos*100).toFixed(2) + "%");
+
         
-
-
-    }while(voto !== 0);
-
-    
-}
+        
+        
+    }
