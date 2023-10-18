@@ -117,7 +117,7 @@ function urnaEletronica() {
     console.log("|2| " + nomeCandidato2);
     console.log("|3| " + nomeCandidato3);
     console.log("|5| Branco");
-    console.log("|8| Nulo");
+    // console.log("|8| Nulo");
     // console.log("|0| Encerrar votação");
 
     voto = parseInt(prompt("Digite a opção de voto"));
@@ -146,17 +146,23 @@ function urnaEletronica() {
             console.log ("O voto foi branco");
             break;
 
-        case 8:
-            totalVotosNulo++;
-            console.log ("O voto foi nulo");
-            break;
+        // case 8:
+        //     confirm("Voto Nulo, tem certeza?");
+        //     totalVotosNulo++;
+        //     console.log ("O voto foi nulo");
+        //     break;
 
         case 123456:
             resposta = String(prompt("Tem certeza que deseja encerrar a votação [s/n]?"));
-            
+           
             
             break;   
-            default:
+            
+        default:
+            confirm("Voto Nulo, tem certeza?");
+            totalVotosNulo++;
+            console.log ("O voto foi nulo");
+            break;
             return;
                 
             }     
