@@ -101,7 +101,8 @@ function urnaEletronica() {
         totalVotosCandidato3 = 0,
         totalVotosBranco = 0,
         totalVotosNulo = 0,
-        totalVotos = totalVotosCandidato1+totalVotosCandidato2+totalVotosCandidato3+totalVotosBranco;
+        totalVotos,
+        resposta;
         
         
     
@@ -120,6 +121,7 @@ function urnaEletronica() {
     // console.log("|0| Encerrar votação");
 
     voto = parseInt(prompt("Digite a opção de voto"));
+    
 
     console.clear();
 
@@ -149,9 +151,9 @@ function urnaEletronica() {
             console.log ("O voto foi nulo");
             break;
 
-        case 123:
-            prompt("Tem certeza que deseja encerrar a votação [s/n]?")
-            if( voto != "s");
+        case 123456:
+            resposta = String(prompt("Tem certeza que deseja encerrar a votação [s/n]?"));
+            
             
             break;   
             default:
@@ -161,9 +163,11 @@ function urnaEletronica() {
             
             
             
-        }while(voto != "s");
+        }while(resposta != "s");
+
+        totalVotos = totalVotosCandidato1+totalVotosCandidato2+totalVotosCandidato3+totalVotosBranco+totalVotosNulo;
             console.log("Votação encerrada");
-            console.log("Total de votos: | % de votos:");
+            console.log("Total de votos:");
             console.log("Candidato " + nomeCandidato1 + ": " + totalVotosCandidato1);
             console.log("Candidato " + nomeCandidato2 + ": " + totalVotosCandidato2);
             console.log("Candidato " + nomeCandidato3 + ": " + totalVotosCandidato3);
