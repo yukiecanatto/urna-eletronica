@@ -88,19 +88,15 @@ function urnaEletronica() {
 
     // Aqui vai todo o código do programa.... 
 
-    const nomeCandidato1 = String(prompt("Digite o nome do candidato 1"));
-    const nomeCandidato2 = String(prompt("Digite o nome do candidato 2"));
-    const nomeCandidato3 = String(prompt("Digite o nome do candidato 3"));
+    do{
+        nomeCandidato1 = prompt("Digite o nome do candidato 1");
+        nomeCandidato2 = prompt("Digite o nome do candidato 2");
+        nomeCandidato3 = prompt("Digite o nome do candidato 3");
+        confirm("Os nomes dos candidatos estão corretos?" + " " + nomeCandidato1 + ", " + nomeCandidato2 + ", " + nomeCandidato3);
+            
 
+         } while(confirm != true);
     
-    if(confirm("Os nomes dos candidatos estão corretos?" + " " + nomeCandidato1 + ", " + nomeCandidato2 + ", " + nomeCandidato3)){
-        
-    }else{
-        console.log("Digite o nome dos candidatos novamente");
-        const nomeCandidato1 = String(prompt("Digite o nome do candidato 1"));
-        const nomeCandidato2 = String(prompt("Digite o nome do candidato 2"));
-        const nomeCandidato3 = String(prompt("Digite o nome do candidato 3"));
-    }
         
         let 
     
@@ -117,17 +113,15 @@ function urnaEletronica() {
         
     
         do {
-    
-            // instruções
-    
-        
+        // instruções
         console.log("Iniciando o programa");
+
         console.log("|1| " + nomeCandidato1);
         console.log("|2| " + nomeCandidato2);
         console.log("|3| " + nomeCandidato3);
         console.log("|5| Branco");
         // console.log("|8| Nulo");
-        // console.log("|0| Encerrar votação");
+        // console.log("|123456| Encerrar votação");
     
         voto = parseInt(prompt("Digite a opção de voto"));
         
@@ -167,26 +161,20 @@ function urnaEletronica() {
                 console.log ("O voto foi nulo");
                 break;
                 return;
-                    
-                }     
                 
+            }            
                 
                 
             }while(resposta != "s");
     
             totalVotos = totalVotosCandidato1+totalVotosCandidato2+totalVotosCandidato3+totalVotosBranco+totalVotosNulo;
                 console.log("Votação encerrada");
-                console.log("Total de votos:");
-                console.log("Candidato " + nomeCandidato1 + ": " + totalVotosCandidato1);
-                console.log("Candidato " + nomeCandidato2 + ": " + totalVotosCandidato2);
-                console.log("Candidato " + nomeCandidato3 + ": " + totalVotosCandidato3);
-                console.log("Brancos: " + totalVotosBranco);
-                console.log("Nulos: " + totalVotosNulo);
-                console.log("% de votos dos candidatos:" + nomeCandidato1 + ": " + (totalVotosCandidato1/totalVotos*100).toFixed(2) + "%");
-                console.log("% de votos dos candidatos:" + nomeCandidato2 + ": " + (totalVotosCandidato2/totalVotos*100).toFixed(2) + "%");
-                console.log("% de votos dos candidatos:" + nomeCandidato3 + ": " + (totalVotosCandidato3/totalVotos*100).toFixed(2) + "%");
-                console.log("% de votos Brancos: " + (totalVotosBranco/totalVotos*100).toFixed(2) + "%");
-                console.log("% de votos Nulos: " + (totalVotosNulo/totalVotos*100).toFixed(2) + "%");
+                console.log("Total e % de votos:");
+                console.log("Candidato " + nomeCandidato1 + ": " + totalVotosCandidato1 + " voto(s) " + (totalVotosCandidato1/totalVotos*100).toFixed(2) + "%");
+                console.log("Candidato " + nomeCandidato2 + ": " + totalVotosCandidato2 + " voto(s) " + (totalVotosCandidato2/totalVotos*100).toFixed(2) + "%");
+                console.log("Candidato " + nomeCandidato3 + ": " + totalVotosCandidato3 + " voto(s) " + (totalVotosCandidato3/totalVotos*100).toFixed(2) + "%");
+                console.log("Brancos: " + totalVotosBranco + " voto(s) " + (totalVotosBranco/totalVotos*100).toFixed(2) + "%");
+                console.log("Nulos: " + totalVotosNulo + " voto(s) " + (totalVotosNulo/totalVotos*100).toFixed(2) + "%");
         }
 
     
