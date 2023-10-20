@@ -168,10 +168,29 @@ function urnaEletronica() {
                         
                     }            
                         
+                    
+                }while(resposta != "s");
+                
+                // DETERMINAÇÃO DO GANHADOR
+                // AS MAIÚSCULAS DAS VARIÁVEIS totalVotosCandidato1
+                
+                if (totalvotosCandidato1 > totalvotosCandidato2 && totalvotosCandidato1 > totalvotosCandidato3) {
+                    nomeGanhador = nomeCandidato1;
+                    votosGanhador = totalVotosCandidato1 + totalVotosBranco;
+                } else if (totalvotosCandidato2 > totalvotosCandidato1 && totalvotosCandidato2 > totalvotosCandidato3) {
+                    nomeGanhador = nomeCandidato2;
+                    votosGanhador = totalvotosCandidato2 + totalvotosBranco;
+                } else if (totalvotosCandidato3 > totalvotosCandidato1 && totalvotosCandidato3 > totalvotosCandidato2) {
+                    nomeGanhador = nomeCandidato3;
+                    totalvotosGanhador = totalvotosCandidato3 + totalvotosBranco;
+                } else {
+                    ganhador = false;
+                }
+                
+
+                // APRESENTANDO OS RESULTADOS E EO VENCEDOR
                         
-                    }while(resposta != "s");
-            
-                    totalVotos = totalVotosCandidato1+totalVotosCandidato2+totalVotosCandidato3+totalVotosBranco+totalVotosNulo;
+                totalVotos = totalVotosCandidato1+totalVotosCandidato2+totalVotosCandidato3+totalVotosBranco+totalVotosNulo;
                         console.log("Votação encerrada");
                         console.log("Total e % de votos:");
                         console.log("Candidato " + nomeCandidato1 + ": " + totalVotosCandidato1 + " voto(s) " + (totalVotosCandidato1/totalVotos*100).toFixed(2) + "%");
@@ -179,7 +198,17 @@ function urnaEletronica() {
                         console.log("Candidato " + nomeCandidato3 + ": " + totalVotosCandidato3 + " voto(s) " + (totalVotosCandidato3/totalVotos*100).toFixed(2) + "%");
                         console.log("Brancos: " + totalVotosBranco + " voto(s) " + (totalVotosBranco/totalVotos*100).toFixed(2) + "%");
                         console.log("Nulos: " + totalVotosNulo + " voto(s) " + (totalVotosNulo/totalVotos*100).toFixed(2) + "%");
-                }
-            
-        
+
+                        console.log("#-----------#")
+
+                        if (ganhador) {
+                            console.log('O ganhador nesta urna foi o candidato ' + nomeGanhador + ' com ' + votosGanhador + ' voto(s) absoluto(s) (' + (votosGanhador / totalVotos * 100).toFixed(2) + '%)');
+                        } else {
+                            console.log('Não houve ganhador nesta urna (empate entre dois ou mais candidatos).');
+                        }
+
+
+
+
+                }        
     
