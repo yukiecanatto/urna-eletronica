@@ -90,7 +90,8 @@ function urnaEletronica() {
     
         // VARIÁVEIS
         let 
-    
+
+            senhaMesario,
             voto,
             totalVotosCandidato1 = 0,
             totalVotosCandidato2 = 0,
@@ -101,8 +102,15 @@ function urnaEletronica() {
             resposta;
 
             
+        // CONFIGURAÇÃO DA SENHA DE MESÁRIO
+        do {
+            senhaMesario = parseInt (prompt("Por favor, insira a senha do numérica de seis digitos de mesário"));
+            confirm("Está certo de que esta será a sua senha? " + "Senha: " + senhaMesario);
+        }while(confirm("Está certo de que esta será a sua senha?") != true);
+
         // CONFIGURAÇÃO DOS NOMES DOS CANDIDATOS
-        do {    
+        do {
+              
             nomeCandidato1 = prompt("Digite o nome do candidato 1");
             nomeCandidato2 = prompt("Digite o nome do candidato 2");
             nomeCandidato3 = prompt("Digite o nome do candidato 3");
@@ -147,7 +155,7 @@ function urnaEletronica() {
                         console.log ("O voto foi branco");
                         break;
             
-                    case 123456:
+                    case senhaMesario:
                         resposta = String(prompt("Tem certeza que deseja encerrar a votação [s/n]?"));
                         break;   
                         
