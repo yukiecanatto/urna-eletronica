@@ -87,17 +87,8 @@
 function urnaEletronica() {
 
     // Aqui vai todo o código do programa.... 
-
-    do{
-        nomeCandidato1 = prompt("Digite o nome do candidato 1");
-        nomeCandidato2 = prompt("Digite o nome do candidato 2");
-        nomeCandidato3 = prompt("Digite o nome do candidato 3");
-        confirm("Os nomes dos candidatos estão corretos?" + " " + nomeCandidato1 + ", " + nomeCandidato2 + ", " + nomeCandidato3);
-            
-
-         } while(confirm != true);
     
-        
+        // VARIÁVEIS
         let 
     
             voto,
@@ -108,76 +99,79 @@ function urnaEletronica() {
             totalVotosNulo = 0,
             totalVotos,
             resposta;
+
             
+        // CONFIGURAÇÃO DOS NOMES DOS CANDIDATOS
+        do {    
+            nomeCandidato1 = prompt("Digite o nome do candidato 1");
+            nomeCandidato2 = prompt("Digite o nome do candidato 2");
+            nomeCandidato3 = prompt("Digite o nome do candidato 3");
+            confirm("Os nomes dos candidatos estão corretos?" + " " + nomeCandidato1 + ", " + nomeCandidato2 + ", " + nomeCandidato3);
+
+            }while(confirm("Os nomes dos candidatos estão corretos?" + " " + nomeCandidato1 + ", " + nomeCandidato2 + ", " + nomeCandidato3) != true);
+                
+                do {
+                // instruções
+                console.log("Iniciando o programa");
+        
+                console.log("|1| " + nomeCandidato1);
+                console.log("|2| " + nomeCandidato2);
+                console.log("|3| " + nomeCandidato3);
+                console.log("|5| Branco");
+                // console.log("|8| Nulo");
+                // console.log("|123456| Encerrar votação");
+            
+                voto = parseInt(prompt("Digite a opção de voto"));
+                
+            
+                console.clear();
+            
+                switch(voto) {
+                    case 1:
+                        totalVotosCandidato1++;
+                        console.log ("Candidato " + nomeCandidato1 + ", recebeu um voto");
+                        break;
+            
+                    case 2:
+                        totalVotosCandidato2++;
+                        console.log ("Candidato " + nomeCandidato2 + ", recebeu um voto");
+                        break;
+            
+                    case 3:
+                        totalVotosCandidato3++;
+                        console.log ("Candidato " + nomeCandidato3 + ", recebeu um voto");
+                        break;
+            
+                    case 5:
+                        totalVotosBranco++;
+                        console.log ("O voto foi branco");
+                        break;
+            
+                    case 123456:
+                        resposta = String(prompt("Tem certeza que deseja encerrar a votação [s/n]?"));
+                        break;   
+                        
+                    default:
+                        confirm("Voto Nulo, tem certeza?");
+                        totalVotosNulo++;
+                        console.log ("O voto foi nulo");
+                        break;
+                        return;
+                        
+                    }            
+                        
+                        
+                    }while(resposta != "s");
+            
+                    totalVotos = totalVotosCandidato1+totalVotosCandidato2+totalVotosCandidato3+totalVotosBranco+totalVotosNulo;
+                        console.log("Votação encerrada");
+                        console.log("Total e % de votos:");
+                        console.log("Candidato " + nomeCandidato1 + ": " + totalVotosCandidato1 + " voto(s) " + (totalVotosCandidato1/totalVotos*100).toFixed(2) + "%");
+                        console.log("Candidato " + nomeCandidato2 + ": " + totalVotosCandidato2 + " voto(s) " + (totalVotosCandidato2/totalVotos*100).toFixed(2) + "%");
+                        console.log("Candidato " + nomeCandidato3 + ": " + totalVotosCandidato3 + " voto(s) " + (totalVotosCandidato3/totalVotos*100).toFixed(2) + "%");
+                        console.log("Brancos: " + totalVotosBranco + " voto(s) " + (totalVotosBranco/totalVotos*100).toFixed(2) + "%");
+                        console.log("Nulos: " + totalVotosNulo + " voto(s) " + (totalVotosNulo/totalVotos*100).toFixed(2) + "%");
+                }
             
         
     
-        do {
-        // instruções
-        console.log("Iniciando o programa");
-
-        console.log("|1| " + nomeCandidato1);
-        console.log("|2| " + nomeCandidato2);
-        console.log("|3| " + nomeCandidato3);
-        console.log("|5| Branco");
-        // console.log("|8| Nulo");
-        // console.log("|123456| Encerrar votação");
-    
-        voto = parseInt(prompt("Digite a opção de voto"));
-        
-    
-        console.clear();
-    
-        switch(voto) {
-            case 1:
-                totalVotosCandidato1++;
-                console.log ("Candidato " + nomeCandidato1 + ", recebeu um voto");
-                break;
-    
-            case 2:
-                totalVotosCandidato2++;
-                console.log ("Candidato " + nomeCandidato2 + ", recebeu um voto");
-                break;
-    
-            case 3:
-                totalVotosCandidato3++;
-                console.log ("Candidato " + nomeCandidato3 + ", recebeu um voto");
-                break;
-    
-            case 5:
-                totalVotosBranco++;
-                console.log ("O voto foi branco");
-                break;
-    
-            case 123456:
-                resposta = String(prompt("Tem certeza que deseja encerrar a votação [s/n]?"));
-               
-                
-                break;   
-                
-            default:
-                confirm("Voto Nulo, tem certeza?");
-                totalVotosNulo++;
-                console.log ("O voto foi nulo");
-                break;
-                return;
-                
-            }            
-                
-                
-            }while(resposta != "s");
-    
-            totalVotos = totalVotosCandidato1+totalVotosCandidato2+totalVotosCandidato3+totalVotosBranco+totalVotosNulo;
-                console.log("Votação encerrada");
-                console.log("Total e % de votos:");
-                console.log("Candidato " + nomeCandidato1 + ": " + totalVotosCandidato1 + " voto(s) " + (totalVotosCandidato1/totalVotos*100).toFixed(2) + "%");
-                console.log("Candidato " + nomeCandidato2 + ": " + totalVotosCandidato2 + " voto(s) " + (totalVotosCandidato2/totalVotos*100).toFixed(2) + "%");
-                console.log("Candidato " + nomeCandidato3 + ": " + totalVotosCandidato3 + " voto(s) " + (totalVotosCandidato3/totalVotos*100).toFixed(2) + "%");
-                console.log("Brancos: " + totalVotosBranco + " voto(s) " + (totalVotosBranco/totalVotos*100).toFixed(2) + "%");
-                console.log("Nulos: " + totalVotosNulo + " voto(s) " + (totalVotosNulo/totalVotos*100).toFixed(2) + "%");
-        }
-
-    
-
-    
-
