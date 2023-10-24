@@ -99,7 +99,9 @@ function urnaEletronica() {
             totalVotosBranco = 0,
             totalVotosNulo = 0,
             totalVotos,
-            resposta;
+            resposta,
+            ganhador,
+            nomeGanhador;
 
             
         // CONFIGURAÇÃO DA SENHA DE MESÁRIO
@@ -172,17 +174,16 @@ function urnaEletronica() {
                 }while(resposta != "s");
                 
                 // DETERMINAÇÃO DO GANHADOR
-                // AS MAIÚSCULAS DAS VARIÁVEIS totalVotosCandidato1
                 
-                if (totalvotosCandidato1 > totalvotosCandidato2 && totalvotosCandidato1 > totalvotosCandidato3) {
+                if (totalVotosCandidato1 > totalVotosCandidato2 && totalVotosCandidato1 > totalVotosCandidato3) {
                     nomeGanhador = nomeCandidato1;
-                    votosGanhador = totalVotosCandidato1 + totalVotosBranco;
-                } else if (totalvotosCandidato2 > totalvotosCandidato1 && totalvotosCandidato2 > totalvotosCandidato3) {
+                    VotosGanhador = totalVotosCandidato1 + totalVotosBranco;
+                } else if (totalVotosCandidato2 > totalVotosCandidato1 && totalVotosCandidato2 > totalVotosCandidato3) {
                     nomeGanhador = nomeCandidato2;
-                    votosGanhador = totalvotosCandidato2 + totalvotosBranco;
-                } else if (totalvotosCandidato3 > totalvotosCandidato1 && totalvotosCandidato3 > totalvotosCandidato2) {
+                    VotosGanhador = totalVotosCandidato2 + totalVotosBranco;
+                } else if (totalVotosCandidato3 > totalVotosCandidato1 && totalVotosCandidato3 > totalVotosCandidato2) {
                     nomeGanhador = nomeCandidato3;
-                    totalvotosGanhador = totalvotosCandidato3 + totalvotosBranco;
+                    totalVotosGanhador = totalVotosCandidato3 + totalVotosBranco;
                 } else {
                     ganhador = false;
                 }
