@@ -81,7 +81,14 @@
 // do {
 //     console.log("Instrução com contador em" , contador);
 //     contador += 1;
-// } while (contador >= 10); 
+// } while (contador >= 10);
+
+
+function dataHora(){
+    const data = new Date();
+    const dia = data.getData;
+    return;
+}
 
 
 function urnaEletronica() {
@@ -203,6 +210,11 @@ function urnaEletronica() {
     } else {
         console.log("Não houve ganhador nesta urna (empate entre dois ou mais candidatos).");
     }
+
+    dataHora();
+    console.log(dia);
+       
+
         
                     
 
