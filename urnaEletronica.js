@@ -107,7 +107,6 @@ function urnaEletronica() {
         // CONFIGURAÇÃO DA SENHA DE MESÁRIO
         do {
             senhaMesario = parseInt (prompt("Por favor, insira a senha do numérica de seis digitos de mesário"));
-            confirm("Está certo de que esta será a sua senha? " + "Senha: " + senhaMesario);
         }while(confirm("Está certo de que esta será a sua senha?") != true);
 
         // CONFIGURAÇÃO DOS NOMES DOS CANDIDATOS
@@ -116,7 +115,6 @@ function urnaEletronica() {
             nomeCandidato1 = prompt("Digite o nome do candidato 1");
             nomeCandidato2 = prompt("Digite o nome do candidato 2");
             nomeCandidato3 = prompt("Digite o nome do candidato 3");
-            confirm("Os nomes dos candidatos estão corretos?" + " " + nomeCandidato1 + ", " + nomeCandidato2 + ", " + nomeCandidato3);
 
             }while(confirm("Os nomes dos candidatos estão corretos?" + " " + nomeCandidato1 + ", " + nomeCandidato2 + ", " + nomeCandidato3) != true);
                 
