@@ -135,24 +135,38 @@ function urnaEletronica() {
         console.clear();
             
         if (voto === 1){
+            if(confirm("Seu voto foi " + nomeCandidato1 + " confirme seu voto") !=false){
             totalVotosCandidato1++;
             console.log ("Candidato " + nomeCandidato1 + ", recebeu um voto");
+            }
+
         } else if (voto === 2){
-            totalVotosCandidato2++;
-            console.log ("Candidato " + nomeCandidato2 + ", recebeu um voto");
+            if(confirm("Seu voto foi " + nomeCandidato2 + " confirme seu voto") !=false){
+                totalVotosCandidato2++;
+                console.log ("Candidato " + nomeCandidato2 + ", recebeu um voto");
+                }
+
         }else if (voto === 3){
-            totalVotosCandidato3++;
-            console.log ("Candidato " + nomeCandidato3 + ", recebeu um voto");
+            if(confirm("Seu voto foi " + nomeCandidato3 + " confirme seu voto") !=false){
+                totalVotosCandidato3++;
+                console.log ("Candidato " + nomeCandidato3 + ", recebeu um voto");
+                }
+
         }else if (voto === 5){
+            if(confirm("Seu voto foi branco, confirme o voto") !=false){
             totalVotosBranco++;
             console.log ("O voto foi branco");
+            }
+
         }else if(voto === senhaMesario){
             resposta = String(prompt("Tem certeza que deseja encerrar a votação [s/n]?"));
         }else{
-            confirm("Voto Nulo, tem certeza?");
+            if(confirm("Voto Nulo, tem certeza?") != false){
             totalVotosNulo++;
             console.log ("O voto foi nulo");
-        }      
+            }
+        }
+        // }     
                 
     }while(resposta != "s");
         
