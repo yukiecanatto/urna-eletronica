@@ -84,15 +84,22 @@
 // } while (contador >= 10);
 
 
+
 function dataHora(){
-    const data = new Date();
-    const dia = data.getData;
-    return;
+    const dataD = new Date();
+    // const dia = dataD.getDate();
+    // const mes = dataD.getMonth() + 1;
+    // const ano = dataD.getFullYear();
+    // const hora = dataD.getHours();
+    const min = dataD.getMinutes();
+    // console.log("Votação iniciada em " + dia + "/" + mes + "/" + ano + "; às " + hora + ":" + min);
+    
 }
 
 
 function urnaEletronica() {
     
+
     // VARIÁVEIS
 
     let 
@@ -127,7 +134,6 @@ function urnaEletronica() {
      
     
     do {
-            
         console.log("Iniciando o programa");
         
         console.log("|1| " + nomeCandidato1);
@@ -211,12 +217,8 @@ function urnaEletronica() {
         console.log("Não houve ganhador nesta urna (empate entre dois ou mais candidatos).");
     }
 
-    dataHora();
-    console.log(dia);
-       
+    
 
-        
-                    
 
-            
+
     }
