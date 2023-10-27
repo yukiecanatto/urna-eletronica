@@ -87,12 +87,15 @@
 
 function dataHora(){
     const dataD = new Date();
-    // const dia = dataD.getDate();
-    // const mes = dataD.getMonth() + 1;
-    // const ano = dataD.getFullYear();
-    // const hora = dataD.getHours();
+    const dia = dataD.getDate();
+    const mes = dataD.getMonth() + 1;
+    const ano = dataD.getFullYear();
+    const hora = dataD.getHours();
     const min = dataD.getMinutes();
-    // console.log("Votação iniciada em " + dia + "/" + mes + "/" + ano + "; às " + hora + ":" + min);
+
+    const meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
+    
+    return hora + ":" + min + "; em " + dia + " de " + meses[mes] + " de " + ano;
     
 }
 
@@ -134,6 +137,9 @@ function urnaEletronica() {
      
     
     do {
+
+        horaInicio = dataHora();
+
         console.log("Iniciando o programa");
         
         console.log("|1| " + nomeCandidato1);
@@ -182,6 +188,8 @@ function urnaEletronica() {
         // }     
                 
     }while(resposta != "s");
+
+    horaFinal = dataHora();
         
     
     // DETERMINAÇÃO DO GANHADOR    
@@ -197,7 +205,7 @@ function urnaEletronica() {
     } else {
         ganhador = false;
     }   
-                   
+                
     
     // APRESENTANDO OS RESULTADOS E EO VENCEDOR
     totalVotos = totalVotosCandidato1+totalVotosCandidato2+totalVotosCandidato3+totalVotosBranco+totalVotosNulo;
@@ -217,6 +225,8 @@ function urnaEletronica() {
         console.log("Não houve ganhador nesta urna (empate entre dois ou mais candidatos).");
     }
 
+    console.log("Votação iniciada às " + horaInicio);
+    console.log("Votação finalizada às " + horaFinal);
     
 
 
