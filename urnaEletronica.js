@@ -95,7 +95,7 @@ function dataHora(){
 
     const meses = new Array("Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro");
     
-    return hora + ":" + min + "; em " + dia + " de " + meses[mes] + " de " + ano;
+    return `${hora} : ${min} ; em ${dia} de ${meses[mes]} de ${ano}`;
     
 }
 
@@ -117,9 +117,12 @@ function urnaEletronica() {
     resposta,
     ganhador,
     votosGanhador,
-    nomeGanhador;
+    nomeGanhador,
+    horaInicio,
+    horaFinal;
+    
 
-        
+
         
     // CONFIGURAÇÃO DA SENHA DE MESÁRIO
     do {
@@ -138,14 +141,15 @@ function urnaEletronica() {
     
     do {
 
+
         horaInicio = dataHora();
 
         console.log("Iniciando o programa");
         
-        console.log("|1| " + nomeCandidato1);
-        console.log("|2| " + nomeCandidato2);
-        console.log("|3| " + nomeCandidato3);
-        console.log("|5| Branco");
+        console.log(`|1| ${nomeCandidato1}`);
+        console.log(`|2| ${nomeCandidato2}`);
+        console.log(`|3| ${nomeCandidato3}`);
+        console.log(`|5| Branco`);
         // console.log("|8| Nulo");
         // console.log("|123456| Encerrar votação");
         
@@ -154,21 +158,21 @@ function urnaEletronica() {
         console.clear();
             
         if (voto === 1){
-            if(confirm("Seu voto foi " + nomeCandidato1 + " confirme seu voto") !=false){
+            if(confirm(`Seu voto foi ${nomeCandidato1} confirme seu voto`) !=false){
             totalVotosCandidato1++;
-            console.log ("Candidato " + nomeCandidato1 + ", recebeu um voto");
+            console.log (`Candidato ${nomeCandidato1} , recebeu um voto`);
             }
 
         } else if (voto === 2){
-            if(confirm("Seu voto foi " + nomeCandidato2 + " confirme seu voto") !=false){
+            if(confirm(`Seu voto foi ${nomeCandidato2} confirme seu voto`) !=false){
                 totalVotosCandidato2++;
-                console.log ("Candidato " + nomeCandidato2 + ", recebeu um voto");
+                console.log (`Candidato ${nomeCandidato2} , recebeu um voto`);
                 }
 
         }else if (voto === 3){
-            if(confirm("Seu voto foi " + nomeCandidato3 + " confirme seu voto") !=false){
+            if(confirm(`Seu voto foi ${nomeCandidato3} confirme seu voto`) !=false){
                 totalVotosCandidato3++;
-                console.log ("Candidato " + nomeCandidato3 + ", recebeu um voto");
+                console.log (`Candidato ${nomeCandidato3} , recebeu um voto`);
                 }
 
         }else if (voto === 5){
@@ -211,22 +215,22 @@ function urnaEletronica() {
     totalVotos = totalVotosCandidato1+totalVotosCandidato2+totalVotosCandidato3+totalVotosBranco+totalVotosNulo;
     console.log("Votação encerrada");
     console.log("Total e % de votos:");
-    console.log("Candidato " + nomeCandidato1 + ": " + totalVotosCandidato1 + " voto(s) " + (totalVotosCandidato1/totalVotos*100).toFixed(2) + "%");
-    console.log("Candidato " + nomeCandidato2 + ": " + totalVotosCandidato2 + " voto(s) " + (totalVotosCandidato2/totalVotos*100).toFixed(2) + "%");
-    console.log("Candidato " + nomeCandidato3 + ": " + totalVotosCandidato3 + " voto(s) " + (totalVotosCandidato3/totalVotos*100).toFixed(2) + "%");
-    console.log("Brancos: " + totalVotosBranco + " voto(s) " + (totalVotosBranco/totalVotos*100).toFixed(2) + "%");
-    console.log("Nulos: " + totalVotosNulo + " voto(s) " + (totalVotosNulo/totalVotos*100).toFixed(2) + "%");
+    console.log(`Candidato ${nomeCandidato1} : ${totalVotosCandidato1} voto(s) ${(totalVotosCandidato1/totalVotos*100).toFixed(2)} %`);
+    console.log(`Candidato ${nomeCandidato2} : ${totalVotosCandidato2} voto(s) ${(totalVotosCandidato2/totalVotos*100).toFixed(2)} %`);
+    console.log(`Candidato ${nomeCandidato3} : ${totalVotosCandidato3} voto(s) ${(totalVotosCandidato3/totalVotos*100).toFixed(2)} %`);
+    console.log(`Brancos: ${totalVotosBranco} voto(s) ${(totalVotosBranco/totalVotos*100).toFixed(2)} %`);
+    console.log(`Nulos: ${totalVotosNulo} voto(s) ${(totalVotosNulo/totalVotos*100).toFixed(2)} + "%`);
 
     console.log("#-----------#")
 
     if (ganhador = true) {
-        console.log("O ganhador nesta urna foi o candidato " + nomeGanhador + " com " + votosGanhador + " voto(s)(votos do candidato + votos brancos) " + (votosGanhador / totalVotos * 100).toFixed(2) + "%)");
+        console.log(`O ganhador nesta urna foi o candidato ${nomeGanhador} com ${votosGanhador} voto(s)(votos do candidato + votos brancos) ${(votosGanhador / totalVotos * 100).toFixed(2)} %)`);
     } else {
         console.log("Não houve ganhador nesta urna (empate entre dois ou mais candidatos).");
     }
 
-    console.log("Votação iniciada às " + horaInicio);
-    console.log("Votação finalizada às " + horaFinal);
+    console.log(`Votação iniciada às ${horaInicio}`);
+    console.log(`Votação finalizada às ${horaFinal}`);
     
 
 
