@@ -71,14 +71,29 @@ function urnaEletronicaDesafio9() {
 
     let candidatos = [
 
-        [30, "Michael Kyle"],
-        [20, "Jannet Marry Kyle"],
+        [30, "Sr. Madruga"],
+        [20, "Chiquinha"],
+        [10, "Kiko"],
+        [40, "Chaves"],
+        [50, "Sr. Barriga"]
+        
 
     ];
 
     for (i = 0; i < candidatos.length; i++) {
         
-        document.getElementById("imprimeCandidato").innerHTML += `Nome candidato: ${candidatos[0][i]}<br>`;
+        document.getElementById("imprimeCandidato").innerHTML += `Nome candidato: ${candidatos[i][0]} | ${candidatos[i][1]} <br>`;
+
+
+        
+        // if (voto === ${candidatos[0][0]}) {
+        //     if(confirm(`Seu voto foi ${candidatos[0][1]} , confirme seu voto`) !=false){
+        //     totalVotosCandidato1++;
+        //     document.getElementById(`Candidato ${nomeCandidato1} , recebeu um voto`);
+        //     }
+
+        // }
+        
 
     }
     

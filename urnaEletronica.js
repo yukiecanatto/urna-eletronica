@@ -223,18 +223,21 @@ function urnaEletronica() {
     if (totalVotosCandidato1 > totalVotosCandidato2 && totalVotosCandidato1 > totalVotosCandidato3) {
         nomeGanhador = nomeCandidato1;
         votosGanhador = totalVotosCandidato1 + totalVotosBranco;
+
     } else if (totalVotosCandidato2 > totalVotosCandidato1 && totalVotosCandidato2 > totalVotosCandidato3) {
         nomeGanhador = nomeCandidato2;
         votosGanhador = totalVotosCandidato2 + totalVotosBranco;
+
     } else if (totalVotosCandidato3 > totalVotosCandidato1 && totalVotosCandidato3 > totalVotosCandidato2) {
         nomeGanhador = nomeCandidato3;
         votosGanhador = totalVotosCandidato3 + totalVotosBranco;
+
     } else {
         ganhador = false;
     }   
                 
     
-    // APRESENTANDO OS RESULTADOS E EO VENCEDOR
+    // APRESENTANDO OS RESULTADOS E O VENCEDOR
     totalVotos = totalVotosCandidato1+totalVotosCandidato2+totalVotosCandidato3+totalVotosBranco+totalVotosNulo;
     console.log("Votação encerrada");
     console.log("Total e % de votos:");
