@@ -10,26 +10,25 @@
 
 
 function verificaUrnaAtual() {
+    
+    let hashUrnaAtual;
+    let hashValido;
 
     fetch("urnaEletronica.js")
         .then(response => response.text())
         .then(response => CryptoJS.SHA256(response).toString())
-        .then(hashUrnaAtual => {
+        .then(response => hashUrnaAtual = response);
             
-            fetch("hashValido")
-            .then(response => response.text())
-            .then(hashValido => {
-                if (hashUrnaAtual === hashValido){
-                    console.log("Urna verificada, código integro.")
-                } else {
-                    console.log("URNA ADULTERADA! HASHES NÃO BATEM!")
-                    console.log(`HASH DA URNA: ${hashUrnaAtual}`)
-                    console.log(`HASH ESPERADO: ${hashValido}`)
-                    
-                }
-            })
-        });
-
+    fetch("hashValido")
+        .then(response => response.text())
+        .then(response => hashValido = response);
+    
+    return {
+        hashUrnaAtual: hashUrnaAtual,
+        hashValido: hashValido,
+        status: hashUrnaAtual === hashValido
+    }
+       
 }
 
 
@@ -47,14 +46,20 @@ function dataHora(){
     
 }
 
+// SOM DE CONFIRMAÇÃO
+async function audioConfirmacao() {
+    const audio = new Audio("./confirmacao.mp3");
+    await audio.play();
+}
 
-function urnaEletronicaDesafio9() {
+
+async function urnaEletronicaDesafio9() {
     
 
     // VARIÁVEIS
 
     let 
-    senhaMesario,
+    senhaMesario = 123,
     voto,
     totalVotosCandidato1 = 0,
     totalVotosCandidato2 = 0,
@@ -71,9 +76,9 @@ function urnaEletronicaDesafio9() {
 
     let candidatos = [
 
-        [30, "Sr. Madruga"],
+        [10, "Sr. Madruga", 0],
         [20, "Chiquinha"],
-        [10, "Kiko"],
+        [30, "Kiko"],
         [40, "Chaves"],
         [50, "Sr. Barriga"]
         
@@ -82,20 +87,41 @@ function urnaEletronicaDesafio9() {
 
     for (i = 0; i < candidatos.length; i++) {
         
-        document.getElementById("imprimeCandidato").innerHTML += `Nome candidato: ${candidatos[i][0]} | ${candidatos[i][1]} <br>`;
+        // document.getElementById("imprimeCandidato").innerHTML += `Nome candidato: ${candidatos[i][0]} | ${candidatos[i][1]} <br>`;
+        console.log(`Nome candidato: ${candidatos[i][0]} | ${candidatos[i][1]} <br>`);
 
-
+        voto = parseInt(prompt("Digite a opção de voto"));
         
-        // if (voto === ${candidatos[0][0]}) {
-        //     if(confirm(`Seu voto foi ${candidatos[0][1]} , confirme seu voto`) !=false){
-        //     totalVotosCandidato1++;
-        //     document.getElementById(`Candidato ${nomeCandidato1} , recebeu um voto`);
-        //     }
-
-        // }
         
+            if (voto === candidatos[i][0]) {
+                if(confirm(`Seu voto foi ${candidatos[i][1]} , confirme seu voto`) !=false){
+                totalVotosCandidato[i][2]++;
+                nomeCandidato1 = candidatos[i][1];
+                await audioConfirmacao();
+                console.log (`Candidato ${nomeCandidato1} , recebeu um voto`);
+                }
+    
+            }else if(voto === candidatos[i][0]) {
+                if(confirm(`Seu voto foi ${candidatos[i][1]} , confirme seu voto`) !=false){
+                totalVotosCandidato2++;
+                nomeCandidato2 = candidatos[i][1];
+                await audioConfirmacao();
+                console.log (`Candidato ${nomeCandidato2} , recebeu um voto`);
+            
+            }else if(voto === senhaMesario){
+                resposta = String(prompt("Tem certeza que deseja encerrar a votação [s/n]?"));
 
-    }
+            }else{
+                if(confirm("Voto Nulo, tem certeza?") != false){
+                totalVotosNulo++;
+                await audioConfirmacao();
+                console.log ("O voto foi nulo");
+                }
+            }    
+
+        }        
+
+    }while(resposta != "s");
     
     
 
@@ -213,10 +239,22 @@ function urnaEletronicaDesafio9() {
     console.log(`Votação iniciada às ${horaInicio}`);
     console.log(`Votação finalizada às ${horaFinal}`);
 
-    verificaUrnaAtual();
+    await verificaUrnaAtual().then(verificacao => {
+        if (verificacao.status){
+            console.log("Hashes batem, urna íntegra.");
+        }else{
+            console.log("URNA ADULTERADA, HASHES NÃO BATEM, DESCARTE A URNA");
+            console.log(`Hash da urna: ${hashUrnaAtual}`);
+            console.log(`Hash esperado: ${hashValido}`);
+        }
+        console.log("Fim do programa");
+    });
+
+
     return;
     
 
 
 
-    }
+//     }
+}
